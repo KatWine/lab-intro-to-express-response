@@ -1,6 +1,34 @@
+const express = require('express');
+const app = express();
+const port = 4001;
 
-const express = require('express')
-const app = express()
+
+const magic8Responses = [
+  "It is certain",
+  "It is decidedly so",
+  "Without a doubt",
+  "Yes - Definitely",
+  "You may rely on it",
+  "As I see it, yes",
+  "Most likely",
+  "Outlook good",
+  "Yes, and signs point to yes",
+  "Reply hazy, try again",
+  "Ask again later",
+  "Better not tell you now",
+  "Cannot predict now",
+  "Concentrate and ask again",
+  "Don't count on it",
+  "My reply is no",
+  "My sources say no",
+  "Outlook not so good",
+  "Very doubtful"
+];
+
+app.get('/magic8', (req, res) => {
+  const randomResponse = magic8Responses[Math.floor(Math.random() * magic8Responses.length)];
+  res.send(randomResponse);
+});
 
 app.get('/', (req,res)=>{
     res.send('<h1 style = background-color:green;>ok we did it<h1>')
@@ -39,9 +67,18 @@ app.get('/tim-gunn', (req, res) => {
     res.send(`Stand tall and be proud, no matter how weak or unworthy you feel. Burn up your heart, grit your teeth and move forward. If you just curl up into a ball and hide, time will pass you by. It won't wait for you while you wallow in your grief.`)
   })
 
+  app.listen(port, () => {
+    console.log(`Magic 8-ball app listening at http://localhost:${port}`);
+  });
+
+ 
+
   
 
 
-app.listen(4001, () => {
-    console.log('server is running on port 4001')
-})
+
+
+
+
+
+
