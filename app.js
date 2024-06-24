@@ -27,7 +27,7 @@ const magic8Responses = [
 
 app.get('/magic8', (req, res) => {
   const randomResponse = magic8Responses[Math.floor(Math.random() * magic8Responses.length)];
-  res.send(randomResponse);
+  res.send(randomResponse)
 });
 
 app.get('/', (req,res)=>{
